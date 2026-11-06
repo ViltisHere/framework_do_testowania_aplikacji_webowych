@@ -1,0 +1,1204 @@
+{
+  "target": "http://localhost/techstore-lab/",
+  "pages_scanned": 11,
+  "pages": [
+    {
+      "url": "http://localhost/techstore-lab/",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": []
+    },
+    {
+      "url": "http://localhost/techstore-lab/index.php",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": []
+    },
+    {
+      "url": "http://localhost/techstore-lab/products.php",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/checkout.php?product_id=1",
+        "http://localhost/techstore-lab/checkout.php?product_id=2",
+        "http://localhost/techstore-lab/checkout.php?product_id=3",
+        "http://localhost/techstore-lab/checkout.php?product_id=4",
+        "http://localhost/techstore-lab/checkout.php?product_id=5",
+        "http://localhost/techstore-lab/checkout.php?product_id=6",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": []
+    },
+    {
+      "url": "http://localhost/techstore-lab/login.php",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/login.php",
+          "action_url": "http://localhost/techstore-lab/login.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "password",
+              "type": "password",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/register.php",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/register.php",
+          "action_url": "http://localhost/techstore-lab/register.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "username",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "password",
+              "type": "password",
+              "required": true
+            },
+            {
+              "name": "password_confirm",
+              "type": "password",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=1",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=1",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=2",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=2",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=3",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=3",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=4",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=4",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=5",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=5",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://localhost/techstore-lab/checkout.php?product_id=6",
+      "status_code": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/index.php",
+        "http://localhost/techstore-lab/products.php",
+        "http://localhost/techstore-lab/login.php",
+        "http://localhost/techstore-lab/register.php",
+        "http://localhost/techstore-lab/index.php"
+      ],
+      "forms": [
+        {
+          "page_url": "http://localhost/techstore-lab/checkout.php?product_id=6",
+          "action_url": "http://localhost/techstore-lab/checkout.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "postal_code",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "city",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "product_id",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "quantity",
+              "type": "number",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": true
+            },
+            {
+              "name": "delivery",
+              "type": "radio",
+              "required": false
+            },
+            {
+              "name": "payment",
+              "type": "select",
+              "required": true
+            },
+            {
+              "name": "notes",
+              "type": "textarea",
+              "required": false
+            },
+            {
+              "name": "terms",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "forms_found": 8,
+  "forms": [
+    {
+      "page_url": "http://localhost/techstore-lab/login.php",
+      "action_url": "http://localhost/techstore-lab/login.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/register.php",
+      "action_url": "http://localhost/techstore-lab/register.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "username",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "required": true
+        },
+        {
+          "name": "password_confirm",
+          "type": "password",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=1",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=2",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=3",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=4",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=5",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    },
+    {
+      "page_url": "http://localhost/techstore-lab/checkout.php?product_id=6",
+      "action_url": "http://localhost/techstore-lab/checkout.php",
+      "method": "POST",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "type": "tel",
+          "required": true
+        },
+        {
+          "name": "street",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": true
+        },
+        {
+          "name": "delivery",
+          "type": "radio",
+          "required": false
+        },
+        {
+          "name": "payment",
+          "type": "select",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "terms",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

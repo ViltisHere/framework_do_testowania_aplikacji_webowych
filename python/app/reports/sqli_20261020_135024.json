@@ -1,0 +1,58 @@
+{
+  "scan_type": "SQL Injection",
+  "timestamp": "2026-10-20T13:50:24",
+  "target": "http://localhost/techstore-lab/",
+  "results": [
+    {
+      "endpoint_name": "bezpieczny",
+      "url": "http://localhost/techstore-lab/lab/sql-injection/",
+      "test_type": "SQL Injection",
+      "payload": "1 OR 1=1",
+      "expected_behavior": "reject_payload",
+      "baseline": {
+        "status_code": 200,
+        "content_type": "application/json; charset=utf-8",
+        "response_length": 166,
+        "error": null
+      },
+      "attack": {
+        "status_code": 400,
+        "content_type": "application/json; charset=utf-8",
+        "response_length": 48,
+        "error": null
+      },
+      "baseline_json_records": null,
+      "attack_json_records": null,
+      "status": "PASS",
+      "explanation": "Podejrzana wartość została odrzucona."
+    },
+    {
+      "endpoint_name": "podatny_lab",
+      "url": "http://localhost/techstore-lab/lab/sql-injection/vulnerable.php",
+      "test_type": "SQL Injection",
+      "payload": "1 OR 1=1",
+      "expected_behavior": "detect_injection",
+      "baseline": {
+        "status_code": 200,
+        "content_type": "application/json; charset=utf-8",
+        "response_length": 218,
+        "error": null
+      },
+      "attack": {
+        "status_code": 200,
+        "content_type": "application/json; charset=utf-8",
+        "response_length": 1096,
+        "error": null
+      },
+      "baseline_json_records": 1,
+      "attack_json_records": 6,
+      "status": "FAIL",
+      "explanation": "W odpowiedzi wykryto więcej rekordów niż w teście bazowym."
+    }
+  ],
+  "summary": {
+    "pass": 1,
+    "fail": 1,
+    "error": 0
+  }
+}

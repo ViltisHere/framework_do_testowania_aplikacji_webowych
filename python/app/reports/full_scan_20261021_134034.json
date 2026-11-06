@@ -1,0 +1,276 @@
+{
+  "framework": "Framework do testowania bezpieczeństwa aplikacji webowych",
+  "target": "http://localhost/techstore-lab/",
+  "created_at": "2026-10-21T13:40:34",
+  "assessment": "FINDINGS_REQUIRE_REVIEW",
+  "module_summary": {
+    "total": 4,
+    "completed": 4,
+    "errors": 0
+  },
+  "test_summary": {
+    "total": 27,
+    "pass": 24,
+    "fail": 1,
+    "error": 0,
+    "info": 2
+  },
+  "modules": [
+    {
+      "module": "Crawler",
+      "script": "crawler.py",
+      "status": "COMPLETED",
+      "return_code": 0,
+      "report_files": [],
+      "message": ""
+    },
+    {
+      "module": "SQL Injection",
+      "script": "test_sql_injection.py",
+      "status": "COMPLETED",
+      "return_code": 0,
+      "report_files": [
+        "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\sqli_20261021_134033.json"
+      ],
+      "message": ""
+    },
+    {
+      "module": "XSS",
+      "script": "test_xss.py",
+      "status": "COMPLETED",
+      "return_code": 0,
+      "report_files": [
+        "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\xss_20261021_134034.json"
+      ],
+      "message": ""
+    },
+    {
+      "module": "HTTP Security",
+      "script": "test_http_security.py",
+      "status": "COMPLETED",
+      "return_code": 0,
+      "report_files": [
+        "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json"
+      ],
+      "message": ""
+    }
+  ],
+  "results": [
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Content-Security-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Content-Type-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Frame-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Referrer-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Permissions-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "COOKIE_FLAG",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Ciasteczko PHPSESSID: obecna flaga HttpOnly."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "COOKIE_FLAG",
+      "url": "http://localhost/techstore-lab/",
+      "status": "PASS",
+      "explanation": "Ciasteczko PHPSESSID: obecna flaga SameSite."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Content-Security-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Content-Type-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Frame-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Referrer-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Permissions-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "COOKIE_FLAGS",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "INFO",
+      "explanation": "Odpowiedź nie ustawiła ciasteczek; nie ma flag do sprawdzenia."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Content-Security-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Content-Type-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek X-Frame-Options."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Referrer-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "SECURITY_HEADER",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Obecny nagłówek Permissions-Policy."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "COOKIE_FLAGS",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "INFO",
+      "explanation": "Odpowiedź nie ustawiła ciasteczek; nie ma flag do sprawdzenia."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "API_AUTH",
+      "url": "http://localhost/techstore-lab/api/me.php",
+      "status": "PASS",
+      "explanation": "Endpoint bez logowania zwrócił HTTP 401."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "API_JSON",
+      "url": "http://localhost/techstore-lab/api/products.php",
+      "status": "PASS",
+      "explanation": "Endpoint zwrócił HTTP 200 oraz poprawny JSON."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "CSRF_INDICATOR",
+      "url": "http://localhost/techstore-lab/checkout.php",
+      "status": "PASS",
+      "explanation": "Formularz POST zawiera pole przypominające token CSRF."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "CSRF_INDICATOR",
+      "url": "http://localhost/techstore-lab/login.php",
+      "status": "PASS",
+      "explanation": "Formularz POST zawiera pole przypominające token CSRF."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\http_security_20261021_134034.json",
+      "module": "http_security",
+      "test_type": "CSRF_INDICATOR",
+      "url": "http://localhost/techstore-lab/register.php",
+      "status": "PASS",
+      "explanation": "Formularz POST zawiera pole przypominające token CSRF."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\sqli_20261021_134033.json",
+      "module": "sqli_20261021_134033",
+      "test_type": "SQL Injection",
+      "url": "http://localhost/techstore-lab/lab/sql-injection/",
+      "status": "PASS",
+      "explanation": "Podejrzana wartość została odrzucona."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\sqli_20261021_134033.json",
+      "module": "sqli_20261021_134033",
+      "test_type": "SQL Injection",
+      "url": "http://localhost/techstore-lab/lab/sql-injection/vulnerable.php",
+      "status": "FAIL",
+      "explanation": "W odpowiedzi wykryto więcej rekordów niż w teście bazowym."
+    },
+    {
+      "source_report": "C:\\Users\\User_1\\Desktop\\dsw\\inzynierka_repo\\framework_do_testowania_aplikacji_webowych\\python\\app\\reports\\xss_20261021_134034.json",
+      "module": "xss_20261021_134034",
+      "test_type": "XSS - pole notes formularza zamówienia",
+      "url": "http://localhost/techstore-lab/checkout.php",
+      "status": "PASS",
+      "explanation": ""
+    }
+  ]
+}
