@@ -1,7 +1,6 @@
+
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+require_once __DIR__ . '/security.php';
 
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
@@ -40,7 +39,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <span>
                 Cześć,
                 <?= htmlspecialchars(
-                    $_SESSION['username'],
+                    $_SESSION['username'] ?? '',
                     ENT_QUOTES,
                     'UTF-8'
                 ) ?>

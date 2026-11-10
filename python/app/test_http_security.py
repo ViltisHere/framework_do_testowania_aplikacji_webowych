@@ -56,6 +56,18 @@ def validate_local_target(target):
     return target.rstrip("/") + "/"
 
 
+def is_same_local_target(url, base_url):
+    """Sprawdza, czy adres formularza prowadzi do tej samej aplikacji."""
+    target = urlparse(base_url)
+    candidate = urlparse(url)
+
+    return (
+        candidate.scheme in ("http", "https")
+        and candidate.hostname == target.hostname
+        and candidate.port == target.port
+    )
+
+
 def add_result(results, test_type, url, status, explanation, **details):
     item = {
         "test_type": test_type,
@@ -90,7 +102,7 @@ def check_security_headers(session, url, results):
 
     headers = response.headers
 
-    # HSTS ma zastosowanie do połączeń HTTPS, nie do zwykłego HTTP na localhost.
+    # HSTS ma zastosowanie do połączeń HTTPS.
     if urlparse(response.url).scheme == "https":
         if "Strict-Transport-Security" in headers:
             add_result(
@@ -137,8 +149,7 @@ def check_security_headers(session, url, results):
                 purpose=description,
             )
 
-    # Secure ma znaczenie przy HTTPS. Nie zgłaszamy jego braku jako
-    # problemu na lokalnej stronie działającej przez zwykłe HTTP.
+    # Secure sprawdzamy tylko przy HTTPS.
     cookie_headers = []
     raw_headers = getattr(response.raw, "headers", None)
 
@@ -327,8 +338,8 @@ def check_api_products(session, url, results):
 
 def check_csrf_indicators(session, base_url, results):
     """
-    Pasywnie przegląda kilka stron tej samej witryny.
-    Nie wysyła formularzy i nie potwierdza podatności CSRF.
+    Pasywnie sprawdza, czy formularze POST zawierają pole
+    przypominające token CSRF.
     """
     pages_to_check = [
         base_url,
@@ -427,9 +438,221 @@ def check_csrf_indicators(session, base_url, results):
         )
 
 
+def check_csrf_invalid_token(base_url, results):
+    """
+    Aktywnie sprawdza, czy formularz logowania odrzuca nieprawidłowy
+    token CSRF.
+
+    Wysyła wyłącznie fikcyjne dane logowania. Nie wykonuje poprawnego
+    logowania i nie modyfikuje danych w bazie.
+    """
+    login_url = urljoin(base_url, "login.php")
+
+    # Osobna sesja, aby test miał własne ciasteczko i token formularza.
+    csrf_session = requests.Session()
+    csrf_session.headers.update(
+        {"User-Agent": "LocalWebSecurityFramework/1.0"}
+    )
+
+    try:
+        page_response = csrf_session.get(
+            login_url,
+            timeout=TIMEOUT,
+            allow_redirects=True,
+        )
+    except requests.RequestException as exc:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            login_url,
+            "ERROR",
+            f"Nie udało się pobrać formularza logowania: {exc}",
+        )
+        return
+
+    if page_response.status_code != 200:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            login_url,
+            "ERROR",
+            (
+                "Nie można przeprowadzić testu: formularz logowania "
+                f"zwrócił HTTP {page_response.status_code}."
+            ),
+            http_status=page_response.status_code,
+        )
+        return
+
+    soup = BeautifulSoup(page_response.text, "html.parser")
+
+    login_form = None
+
+    for form in soup.find_all("form"):
+        method = form.get("method", "get").strip().lower()
+        action = form.get("action", "")
+        action_url = urljoin(page_response.url, action)
+
+        if (
+            method == "post"
+            and is_same_local_target(action_url, base_url)
+            and urlparse(action_url).path.rstrip("/").endswith("/login.php")
+        ):
+            login_form = form
+            break
+
+    if login_form is None:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            login_url,
+            "ERROR",
+            "Nie znaleziono formularza POST prowadzącego do login.php.",
+        )
+        return
+
+    form_action = urljoin(
+        page_response.url,
+        login_form.get("action", ""),
+    )
+
+    if not is_same_local_target(form_action, base_url):
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "ERROR",
+            "Formularz prowadzi poza badaną aplikację; żądanie nie zostało wysłane.",
+        )
+        return
+
+    # Zachowujemy pola formularza, w tym ewentualne pola ukryte.
+    form_data = {}
+
+    for field in login_form.find_all("input"):
+        name = field.get("name")
+
+        if not name:
+            continue
+
+        input_type = field.get("type", "text").lower()
+
+        if input_type in ("submit", "button", "file", "reset"):
+            continue
+
+        if input_type in ("checkbox", "radio") and not field.has_attr("checked"):
+            continue
+
+        form_data[name] = field.get("value", "")
+
+    # Nazwy zgodne z formularzem logowania TechStore.
+    form_data["email"] = "csrf-test-invalid@example.invalid"
+    form_data["password"] = "Invalid-CSRF-Test-Password-123!"
+
+    # Zastępujemy prawidłowy token celowo nieprawidłową wartością.
+    csrf_field_name = next(
+        (
+            name
+            for name in form_data
+            if CSRF_FIELD_PATTERN.search(name)
+        ),
+        "csrf_token",
+    )
+    form_data[csrf_field_name] = "INVALID_CSRF_TOKEN_FOR_SECURITY_TEST"
+
+    try:
+        post_response = csrf_session.post(
+            form_action,
+            data=form_data,
+            timeout=TIMEOUT,
+            allow_redirects=False,
+        )
+    except requests.RequestException as exc:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "ERROR",
+            f"Nie udało się wysłać testowego formularza: {exc}",
+        )
+        return
+
+    status_code = post_response.status_code
+
+    if status_code == 403:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "PASS",
+            (
+                "Serwer odrzucił formularz z nieprawidłowym tokenem CSRF "
+                "i zwrócił HTTP 403."
+            ),
+            http_status=status_code,
+            csrf_field=csrf_field_name,
+            test_data="dummy_credentials",
+        )
+    elif status_code in (400, 401, 422):
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "PASS",
+            (
+                "Serwer odrzucił formularz z nieprawidłowym tokenem CSRF. "
+                f"Zwrócony status HTTP: {status_code}."
+            ),
+            http_status=status_code,
+            csrf_field=csrf_field_name,
+            test_data="dummy_credentials",
+        )
+    elif status_code in (301, 302, 303, 307, 308) or 200 <= status_code < 300:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "FAIL",
+            (
+                "Formularz z nieprawidłowym tokenem CSRF nie został "
+                "jednoznacznie odrzucony. Serwer zwrócił "
+                f"HTTP {status_code}."
+            ),
+            http_status=status_code,
+            csrf_field=csrf_field_name,
+            test_data="dummy_credentials",
+        )
+    elif status_code >= 500:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "ERROR",
+            f"Serwer zwrócił błąd HTTP {status_code} podczas testu CSRF.",
+            http_status=status_code,
+        )
+    else:
+        add_result(
+            results,
+            "CSRF_ACTIVE",
+            form_action,
+            "INFO",
+            (
+                "Otrzymano nietypowy status HTTP podczas testu CSRF: "
+                f"{status_code}. Wymagana ręczna interpretacja."
+            ),
+            http_status=status_code,
+        )
+
+    csrf_session.close()
+
+
 def main():
     parser = argparse.ArgumentParser(
-        description="Pasywne sprawdzanie podstawowych zabezpieczeń HTTP i API."
+        description=(
+            "Sprawdzanie nagłówków HTTP, ciasteczek, API "
+            "oraz ochrony CSRF."
+        )
     )
     parser.add_argument(
         "target",
@@ -458,11 +681,11 @@ def main():
     )
 
     print("=" * 65)
-    print("TESTY NAGŁÓWKÓW HTTP, CIASTECZEK, API I WSKAŹNIKÓW CSRF")
+    print("TESTY NAGŁÓWKÓW HTTP, CIASTECZEK, API I CSRF")
     print(f"Cel: {base_url}")
     print("=" * 65)
 
-    # Strona główna oraz wybrane endpointy — wyłącznie żądania GET.
+    # Nagłówki HTTP i ciasteczka.
     check_security_headers(session, base_url, results)
     check_security_headers(
         session,
@@ -475,6 +698,7 @@ def main():
         results,
     )
 
+    # Kontrola endpointów API.
     check_api_me(
         session,
         urljoin(base_url, "api/me.php"),
@@ -485,13 +709,20 @@ def main():
         urljoin(base_url, "api/products.php"),
         results,
     )
+
+    # Pasywna analiza pól formularzy.
     check_csrf_indicators(session, base_url, results)
+
+    # Aktywny test odrzucania nieprawidłowego tokenu.
+    check_csrf_invalid_token(base_url, results)
+
+    session.close()
 
     report = {
         "module": "http_security",
         "target": base_url,
         "created_at": datetime.now().isoformat(timespec="seconds"),
-        "method": "passive_checks_and_safe_get_requests",
+        "method": "passive_checks_and_safe_csrf_rejection_test",
         "summary": {
             "total": len(results),
             "pass": sum(r["status"] == "PASS" for r in results),

@@ -1,36 +1,41 @@
-<?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
 
+<?php
+require_once __DIR__ . '/includes/security.php';
 require_once __DIR__ . '/includes/db.php';
 
 $errors = [];
 $email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
+    if (!verifyCsrfToken()) {
+        http_response_code(403);
+        $errors[] = 'Nieprawidłowy token bezpieczeństwa. Odśwież stronę i spróbuj ponownie.';
+    } else {
+        $email = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
 
-    $stmt = $pdo->prepare(
-        'SELECT id, username, email, password
-         FROM users
-         WHERE email = :email'
-    );
-    $stmt->execute(['email' => $email]);
-    $user = $stmt->fetch();
+        $stmt = $pdo->prepare(
+            'SELECT id, username, email, password
+             FROM users
+             WHERE email = :email'
+        );
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
-        session_regenerate_id(true);
+        if ($user && password_verify($password, $user['password'])) {
+            session_regenerate_id(true);
 
-        $_SESSION['user_id'] = (int) $user['id'];
-        $_SESSION['username'] = $user['username'];
+            $_SESSION['user_id'] = (int) $user['id'];
+            $_SESSION['username'] = $user['username'];
 
-        header('Location: index.php');
-        exit;
+            regenerateCsrfToken();
+
+            header('Location: index.php');
+            exit;
+        }
+
+        $errors[] = 'Nieprawidłowy adres e-mail lub hasło.';
     }
-
-    $errors[] = 'Nieprawidłowy adres e-mail lub hasło.';
 }
 
 require_once __DIR__ . '/includes/header.php';
@@ -57,6 +62,12 @@ require_once __DIR__ . '/includes/header.php';
         <?php endforeach; ?>
 
         <form method="POST" action="login.php">
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>"
+            >
+
             <label for="email">Adres e-mail</label>
             <input
                 id="email"
